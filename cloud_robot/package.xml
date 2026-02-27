@@ -1,1 +1,42 @@
+<?xml version="1.0"?>
+<package format="3">
 
+  <name>cloud_robot</name>
+  <version>0.0.0</version>
+
+  <description>
+    Cloud robot hardware interfaces using ros2_control and pigpio
+  </description>
+
+  <maintainer email="you@email.com">cloud</maintainer>
+
+  <license>Apache-2.0</license>
+
+  <!-- build system -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- build dependencies -->
+  <build_depend>rclcpp</build_depend>
+  <build_depend>hardware_interface</build_depend>
+  <build_depend>pluginlib</build_depend>
+  <build_depend>controller_manager</build_depend>
+
+  <!-- runtime dependencies -->
+  <exec_depend>rclcpp</exec_depend>
+  <exec_depend>hardware_interface</exec_depend>
+  <exec_depend>pluginlib</exec_depend>
+  <exec_depend>controller_manager</exec_depend>
+
+  <!-- pigpio system dependency -->
+  <exec_depend>pigpio</exec_depend>
+
+  <!-- export plugin -->
+  <export>
+
+    <build_type>ament_cmake</build_type>
+
+    <hardware_interface plugin="${prefix}/plugin.xml"/>
+
+  </export>
+
+</package>
