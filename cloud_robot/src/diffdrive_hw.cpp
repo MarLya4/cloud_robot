@@ -197,8 +197,7 @@ hardware_interface::return_type DiffDriveHW::read(
   const rclcpp::Time &,
   const rclcpp::Duration &)
 {
-  velocities_[0] = left_track_->get_velocity();
-  velocities_[1] = right_track_->get_velocity();
+  //FALTA LLENAR
 
   return hardware_interface::return_type::OK;
 }
