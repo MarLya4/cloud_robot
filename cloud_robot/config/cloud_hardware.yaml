@@ -21,6 +21,7 @@ diff_drive_controller:
     wheel_radius: 0.05
     
     use_stamped_vel: false
+    open loop: false
 
 servo_controller:
   ros__parameters:
@@ -31,4 +32,4 @@ servo_controller:
       - arm_base_joint
       - arm_elbow_joint
       - gripper_joint
-    open loop: false
+    
