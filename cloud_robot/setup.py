@@ -19,7 +19,7 @@ setup(
 
         ('share/' + package_name + '/urdf/meshes',glob('urdf/meshes/*')),
         ('share/' + package_name + '/launch', glob('launch/*.py')),
-        ('share/' + package_name + '/controllers', glob('controllers/*')),
+        ('share/' + package_name + '/config', glob('config/*')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
