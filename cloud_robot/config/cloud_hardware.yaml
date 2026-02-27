@@ -1,1 +1,34 @@
 
+controller_manager:
+  ros__parameters:
+    update_rate: 80
+
+    diff_drive_controller:
+      type: diff_drive_controller/DiffDriveController
+
+    servo_controller:
+      type: forward_command_controller/ForwardCommandController
+
+
+
+diff_drive_controller:
+  ros__parameters:
+
+    left_wheel_names: ["left_track_joint"]
+    right_wheel_names: ["right_track_joint"]
+
+    wheel_separation: 0.121
+    wheel_radius: 0.05
+    
+    use_stamped_vel: false
+
+servo_controller:
+  ros__parameters:
+
+    joints:
+      - flipper_left_joint
+      - flipper_right_joint
+      - arm_base_joint
+      - arm_elbow_joint
+      - gripper_joint
+    open loop: false
