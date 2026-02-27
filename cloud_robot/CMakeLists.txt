@@ -14,81 +14,62 @@ endif()
 ##################################################
 
 find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_python REQUIRED)
+
 find_package(rclcpp REQUIRED)
 find_package(hardware_interface REQUIRED)
 find_package(pluginlib REQUIRED)
 
-# pigpio (system library)
+##################################################
+# pigpio
+##################################################
+
+find_path(PIGPIO_INCLUDE_DIR pigpio.h REQUIRED)
 find_library(PIGPIO_LIBRARY pigpio REQUIRED)
 
 ##################################################
-# include directories
+# includes
 ##################################################
 
 include_directories(
   include
+  ${PIGPIO_INCLUDE_DIR}
 )
 
 ##################################################
-# servo_hw library
+# servo hardware interface
 ##################################################
 
 add_library(servo_hw SHARED
-
   src/servo_hw.cpp
-
-)
-
-target_include_directories(servo_hw PUBLIC
-
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>
-
 )
 
 ament_target_dependencies(servo_hw
-
   rclcpp
   hardware_interface
   pluginlib
-
 )
 
 target_link_libraries(servo_hw
-
   ${PIGPIO_LIBRARY}
-
 )
 
 ##################################################
-# diffdrive_hw library
+# diffdrive hardware interface
 ##################################################
 
 add_library(diffdrive_hw SHARED
-
   src/diffdrive_hw.cpp
-
-)
-
-target_include_directories(diffdrive_hw PUBLIC
-
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>
-
 )
 
 ament_target_dependencies(diffdrive_hw
-
   rclcpp
   hardware_interface
   pluginlib
-
 )
 
 target_link_libraries(diffdrive_hw
-
   ${PIGPIO_LIBRARY}
-
 )
 
 ##################################################
@@ -100,21 +81,17 @@ pluginlib_export_plugin_description_file(
 )
 
 ##################################################
-# install libraries
+# install C++ libs
 ##################################################
 
 install(
-
   TARGETS
-    servo_hw
-    diffdrive_hw
-
-  EXPORT export_cloud_robot
+  servo_hw
+  diffdrive_hw
 
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
-
 )
 
 ##################################################
@@ -122,10 +99,8 @@ install(
 ##################################################
 
 install(
-
   DIRECTORY include/
   DESTINATION include
-
 )
 
 ##################################################
@@ -133,31 +108,34 @@ install(
 ##################################################
 
 install(
-
   FILES plugin.xml
   DESTINATION share/${PROJECT_NAME}
-
 )
 
 ##################################################
-# export for other packages
+# install python package
 ##################################################
 
-ament_export_include_directories(include)
+ament_python_install_package(${PROJECT_NAME})
+
+##################################################
+# export
+##################################################
+
+ament_export_include_directories(
+  include
+  ${PIGPIO_INCLUDE_DIR}
+)
 
 ament_export_libraries(
-
   servo_hw
   diffdrive_hw
-
 )
 
 ament_export_dependencies(
-
   rclcpp
   hardware_interface
   pluginlib
-
 )
 
 ##################################################
