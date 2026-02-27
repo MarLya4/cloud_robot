@@ -10,9 +10,6 @@
 namespace cloud_hardware
 {
 
-/* ============================== */
-/* INIT                          */
-/* ============================== */
 
 hardware_interface::CallbackReturn DiffDriveHW::on_init(
   const hardware_interface::HardwareInfo & info)
@@ -33,9 +30,6 @@ hardware_interface::CallbackReturn DiffDriveHW::on_init(
 }
 
 
-/* ============================== */
-/* CONFIGURE (CREAR TRACKS)      */
-/* ============================== */
 
 hardware_interface::CallbackReturn DiffDriveHW::on_configure(
   const rclcpp_lifecycle::State &)
