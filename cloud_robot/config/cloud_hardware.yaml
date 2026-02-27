@@ -27,9 +27,15 @@ servo_controller:
   ros__parameters:
 
     joints:
-      - flipper_left_joint
-      - flipper_right_joint
-      - arm_base_joint
-      - arm_elbow_joint
-      - gripper_joint
+      - Left_Front_Fliper_1
+      - Right_Front_Fliper_1
+      - Left_Rear_Fliper_1
+      - Right_Rear_Wheel_1
+      - Joint_1_1
+      - Joint_Bridge_1_1
+      - Joint_Bridge_2_1
+      - Joint_2_1
+      - Joint_3_1
+      - Joint_4_1
+      - Joint_5_1
     
