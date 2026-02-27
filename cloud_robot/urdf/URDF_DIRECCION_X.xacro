@@ -4,6 +4,8 @@
 <xacro:include filename="materials.xacro" />
 <xacro:include filename="URDF_DIRECCION_X.trans" />
 <xacro:include filename="URDF_DIRECCION_X.gazebo" />
+<xacro:include filename="ros2_control.xacro" />
+
 <link name="base_link">
   <inertial>
     <origin xyz="0.0015670288303076142 -0.04921817269007369 0.06681838893831736" rpy="0 0 0"/>
