@@ -9,7 +9,8 @@ controller_manager:
     servo_controller:
       type: forward_command_controller/ForwardCommandController
 
-
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
 
 diff_drive_controller:
   ros__parameters:
@@ -39,3 +40,5 @@ servo_controller:
       - Joint_4_1
       - Joint_5_1
     
+joint_state_broadcaster:
+  ros__parameters: {}
