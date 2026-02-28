@@ -1,1 +1,52 @@
+<ros2_control name="DiffDriveSystem" type="system">
+  <hardware>
+    <plugin>cloud_hardware/DiffDriveHW</plugin>
+    
+    <!-- LEFT TRACK -->
+    <param name="left.name">left_track</param>
+    <param name="left.slp_gpio">22</param>
+    <param name="left.dir_gpio">24</param>
+    <param name="left.pwm_gpio">12</param>
+    <param name="left.rpm_motor">220.0</param>
+    <param name="left.gear_ratio">1.73</param>
+    <param name="left.max_accel">16.0</param>
+    <param name="left.invert_direction">true</param>
+
+    <!-- RIGHT TRACK -->
+    <param name="right.name">right_track</param>
+    <param name="right.slp_gpio">23</param>
+    <param name="right.dir_gpio">25</param>
+    <param name="right.pwm_gpio">13</param>
+    <param name="right.rpm_motor">220.0</param>
+    <param name="right.gear_ratio">1.73</param>
+    <param name="right.max_accel">16.0</param>
+    <param name="right.invert_direction">true</param>
+  </hardware>
+
+  <joint name="Left_Front_Wheel_1">
+    <command_interface name="velocity"/>
+    <state_interface name="velocity"/>
+    <state_interface name="position"/>
+  </joint>
+
+  <joint name="Right_Front_Wheel_1">
+    <command_interface name="velocity"/>
+    <state_interface name="velocity"/>
+    <state_interface name="position"/>
+  </joint>
+
+  <joint name="Left_Rear_Wheel_1">
+    <command_interface name="velocity"/>
+    <state_interface name="velocity"/>
+    <state_interface name="position"/>
+  </joint>
+
+
+  <joint name="left_track_joint">
+    <command_interface name="velocity"/>
+    <state_interface name="velocity"/>
+    <state_interface name="position"/>
+  </joint>
+
+</ros2_control>
 
