@@ -12,7 +12,7 @@
 #include <string>
 #include <cstdint>
 
-namespace cloud_hardware
+namespace cloud_robot
 {
 
 class ServoHW : public hardware_interface::SystemInterface
@@ -109,3 +109,4 @@ private:
 } // namespace cloud_hardware
 
 #endif
+
