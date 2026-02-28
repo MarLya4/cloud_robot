@@ -8,9 +8,9 @@
 #include "hardware_interface/hardware_info.hpp"
 
 #include "rclcpp/macros.hpp"
-#include "cloud_hardware/track.hpp"
+#include "cloud_robot/track.hpp"
 
-namespace cloud_hardware
+namespace cloud_robot
 {
 
 class DiffDriveHW : public hardware_interface::SystemInterface
