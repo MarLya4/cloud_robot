@@ -41,12 +41,152 @@
     <state_interface name="position"/>
   </joint>
 
-
   <joint name="left_track_joint">
     <command_interface name="velocity"/>
     <state_interface name="velocity"/>
     <state_interface name="position"/>
   </joint>
-
 </ros2_control>
 
+<ros2_control name="ServoHW" type="system">
+  <hardware>
+    <plugin>cloud_hardware/ServoHW</plugin>
+  </hardware>
+
+  <!-- FLIPPERS -->
+
+  <joint name="Left_Front_Fliper_1">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <param name="channel">0</param>
+    <param name="rad_min">-2.35</param>
+    <param name="rad_max">2.35</param>
+    <param name="us_min">500</param>
+    <param name="us_max">2500</param>
+    <param name="zero_offset_rad">2.35</param>
+    <param name="invert">false</param>
+  </joint>
+
+  <joint name="Right_Front_Fliper_1">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <param name="channel">1</param>
+    <param name="rad_min">-2.35</param>
+    <param name="rad_max">2.35</param>
+    <param name="us_min">500</param>
+    <param name="us_max">2500</param>
+    <param name="zero_offset_rad">2.35</param>
+    <param name="invert">true</param>
+  </joint>
+
+  <joint name="Left_Rear_Fliper_1">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <param name="channel">2</param>
+    <param name="rad_min">-2.35</param>
+    <param name="rad_max">2.35</param>
+    <param name="us_min">500</param>
+    <param name="us_max">2500</param>
+    <param name="zero_offset_rad">2.35</param>
+    <param name="invert">true</param>
+  </joint>
+
+  <joint name="Right_Rear_Wheel_1">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <param name="channel">3</param>
+    <param name="rad_min">-2.35</param>
+    <param name="rad_max">2.35</param>
+    <param name="us_min">500</param>
+    <param name="us_max">2500</param>
+    <param name="zero_offset_rad">2.35</param>
+    <param name="invert">false</param>
+  </joint>
+
+  <!-- ARM -->
+
+  <joint name="Joint_1_1">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <param name="channel">4</param>
+    <param name="rad_min">-2.35</param>
+    <param name="rad_max">2.35</param>
+    <param name="us_min">500</param>
+    <param name="us_max">2500</param>
+    <param name="zero_offset_rad">2.35</param>
+    <param name="invert">false</param>
+  </joint>
+
+  <joint name="Joint_Bridge_1_1">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <param name="channel">5</param>
+    <param name="rad_min">-2.35</param>
+    <param name="rad_max">2.35</param>
+    <param name="us_min">500</param>
+    <param name="us_max">2500</param>
+    <param name="zero_offset_rad">2.35</param>
+    <param name="invert">false</param>
+  </joint>
+
+  <joint name="Joint_Bridge_2_1">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <param name="channel">6</param>
+    <param name="rad_min">-2.35</param>
+    <param name="rad_max">2.35</param>
+    <param name="us_min">500</param>
+    <param name="us_max">2500</param>
+    <param name="zero_offset_rad">2.35</param>
+    <param name="invert">false</param>
+  </joint>
+
+  <joint name="Joint_2_1">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <param name="channel">7</param>
+    <param name="rad_min">-2.35</param>
+    <param name="rad_max">2.35</param>
+    <param name="us_min">500</param>
+    <param name="us_max">2500</param>
+    <param name="zero_offset_rad">2.35</param>
+    <param name="invert">false</param>
+  </joint>
+
+  <joint name="Joint_3_1">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <param name="channel">8</param>
+    <param name="rad_min">-2.35</param>
+    <param name="rad_max">2.35</param>
+    <param name="us_min">500</param>
+    <param name="us_max">2500</param>
+    <param name="zero_offset_rad">2.35</param>
+    <param name="invert">false</param>
+  </joint>
+
+  <joint name="Joint_4_1">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <param name="channel">9</param>
+    <param name="rad_min">-2.35</param>
+    <param name="rad_max">2.35</param>
+    <param name="us_min">500</param>
+    <param name="us_max">2500</param>
+    <param name="zero_offset_rad">2.35</param>
+    <param name="invert">false</param>
+  </joint>
+
+  <joint name="Joint_5_1">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <param name="channel">10</param>
+    <param name="rad_min">-2.35</param>
+    <param name="rad_max">2.35</param>
+    <param name="us_min">500</param>
+    <param name="us_max">2500</param>
+    <param name="zero_offset_rad">2.35</param>
+    <param name="invert">false</param>
+  </joint>
+
+</ros2_control>
