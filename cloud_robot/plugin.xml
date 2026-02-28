@@ -1,27 +1,16 @@
 <?xml version="1.0"?>
-<library path="cloud_robot_hw">
-
+<library path="libcloud_robot.so">
   <class
     name="cloud_robot/ServoHW"
     type="cloud_robot::ServoHW"
     base_class_type="hardware_interface::SystemInterface">
-
-    <description>
-      Hardware interface for servo control using pigpio
-    </description>
-
+    <description>Hardware interface for servo control using pigpio</description>
   </class>
-
 
   <class
     name="cloud_robot/DiffDriveHW"
     type="cloud_robot::DiffDriveHW"
     base_class_type="hardware_interface::SystemInterface">
-
-    <description>
-      Differential drive hardware interface using Pololu Driver
-    </description>
-
+    <description>Differential drive hardware interface using Pololu Driver</description>
   </class>
-
 </library>
