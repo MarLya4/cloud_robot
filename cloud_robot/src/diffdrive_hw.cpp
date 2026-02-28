@@ -1,5 +1,6 @@
-#include "cloud_hardware/diff_drive_hw.hpp"
-
+#include "cloud_robot/diffdrive_hw.hpp"
+#include "rclcpp/rclcpp.hpp"
+#include "rclcpp_lifecycle/lifecycle_node.hpp"
 #include <pigpiod_if2.h>
 #include <rclcpp/rclcpp.hpp>
 #include <pluginlib/class_list_macros.hpp>
@@ -7,7 +8,7 @@
 #define LOG_IMPORTANTE(logger, fmt, ...) \
   RCLCPP_INFO(logger, "\033[1;35m" fmt "\033[0m", ##__VA_ARGS__)
 
-namespace cloud_hardware
+namespace cloud_robot
 {
 
 
@@ -221,5 +222,5 @@ hardware_interface::return_type DiffDriveHW::write(
 
 
 PLUGINLIB_EXPORT_CLASS(
-  cloud_hardware::DiffDriveHW,
+  cloud_robot::DiffDriveHW,
   hardware_interface::SystemInterface)
