@@ -1,7 +1,9 @@
-
 controller_manager:
   ros__parameters:
     update_rate: 80
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
 
     diff_drive_controller:
       type: diff_drive_controller/DiffDriveController
@@ -9,36 +11,31 @@ controller_manager:
     servo_controller:
       type: forward_command_controller/ForwardCommandController
 
-    joint_state_broadcaster:
-      type: joint_state_broadcaster/JointStateBroadcaster
-
 diff_drive_controller:
   ros__parameters:
-
-    left_wheel_names: ["Left_Front_Wheel_1, Left_Rear_Wheel_1"]
-    right_wheel_names: ["Right_Front_Wheel_1,Right_Rear_Wheel_1"]
-
+    left_wheel_names: ["Revolucion_1", "Revolucion_3"]
+    right_wheel_names: ["Revolucion_2", "Revolucion_4"]
     wheel_separation: 0.121
     wheel_radius: 0.05
-    
     use_stamped_vel: false
-    open loop: false
+    open_loop: false
 
 servo_controller:
   ros__parameters:
 
     joints:
-      - Left_Front_Fliper_1
-      - Right_Front_Fliper_1
-      - Left_Rear_Fliper_1
-      - Right_Rear_Wheel_1
-      - Joint_1_1
-      - Joint_Bridge_1_1
-      - Joint_Bridge_2_1
-      - Joint_2_1
-      - Joint_3_1
-      - Joint_4_1
-      - Joint_5_1
+      - Revolucion_5
+      - Revolucion_6
+      - Revolucion_7
+      - Revolucion_8
+      - Revolucion_9
+      - Revolucion_10
+      - Revolucion_11
+      - Revolucion_12
+      - Revolucion_13
+      - Revolucion_14
+      - Revolucion_15
+    interface_name: position
     
 joint_state_broadcaster:
   ros__parameters: {}
