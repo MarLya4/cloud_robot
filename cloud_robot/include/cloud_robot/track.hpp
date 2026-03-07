@@ -65,4 +65,4 @@ private:
   double prev_target_;
 };
 
-} // namespace cloud_hardware
+} // namespace cloud_robot
