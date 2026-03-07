@@ -20,6 +20,7 @@ find_package(rclcpp_lifecycle REQUIRED)
 add_library(${PROJECT_NAME} SHARED
   src/servo_hw.cpp
   src/diffdrive_hw.cpp
+  src/track.cpp
 )
 
 target_include_directories(${PROJECT_NAME}
@@ -61,9 +62,15 @@ install(FILES plugin.xml
 install(DIRECTORY config/
   DESTINATION share/${PROJECT_NAME}/config
 )
-
-ament_package()
-
-##################################################
+# Instalar URDF/XACRO
+install(DIRECTORY urdf/
+  DESTINATION share/${PROJECT_NAME}/urdf
+)
+install(FILES plugin.xml
+  DESTINATION share/${PROJECT_NAME}
+)
+install(DIRECTORY include/
+  DESTINATION include/${PROJECT_NAME}
+)
 
 ament_package()
