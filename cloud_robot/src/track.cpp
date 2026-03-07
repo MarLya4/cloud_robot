@@ -1,10 +1,10 @@
-#include "cloud_hardware/track.hpp"
+#include "cloud_robot/track.hpp"
 
 #include <pigpiod_if2.h>
 #include <algorithm>
 #include <cmath>
 
-namespace cloud_hardware
+namespace cloud_robot
 {
 
 Track::Track(const TrackConfig& config)
@@ -104,5 +104,4 @@ double Track::get_max_accel() const
   return max_accel_;
 }
 
-} // namespace cloud_hardware
-
+} // namespace cloud_robot
