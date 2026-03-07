@@ -48,39 +48,34 @@ hardware_interface::CallbackReturn DiffDriveHW::on_configure(
 
   RCLCPP_INFO(logger, "Connected to pigpio");
 
-  /* ---------- LEFT TRACK ---------- */
 
- TrackConfig left_cfg;
+TrackConfig left_cfg;
 
 left_cfg.name = "left_track";
 left_cfg.pigpio_handle = pi_;
 
 left_cfg.slp_gpio =
-  std::stoi(info_.hardware_parameters.at("left_slp_gpio"));
+  std::stoi(info_.hardware_parameters.at("left.slp_gpio"));
 
 left_cfg.dir_gpio =
-  std::stoi(info_.hardware_parameters.at("left_dir_gpio"));
+  std::stoi(info_.hardware_parameters.at("left.dir_gpio"));
 
 left_cfg.pwm_gpio =
-  std::stoi(info_.hardware_parameters.at("left_pwm_gpio"));
+  std::stoi(info_.hardware_parameters.at("left.pwm_gpio"));
 
 left_cfg.rpm_motor =
-  std::stod(info_.hardware_parameters.at("rpm_motor"));
+  std::stod(info_.hardware_parameters.at("left.rpm_motor"));
 
 left_cfg.gear_ratio =
-  std::stod(info_.hardware_parameters.at("gear_ratio"));
+  std::stod(info_.hardware_parameters.at("left.gear_ratio"));
 
 left_cfg.max_accel =
-  std::stod(info_.hardware_parameters.at("max_accel"));
+  std::stod(info_.hardware_parameters.at("left.max_accel"));
 
 left_cfg.invert_direction =
-  info_.hardware_parameters.at("left_invert_direction") == "true";
+  info_.hardware_parameters.at("left.invert_direction") == "true";
 
-
-  left_track_ = std::make_unique<Track>(left_cfg);
-
-
-  /* ---------- RIGHT TRACK ---------- */
+left_track_ = std::make_unique<Track>(left_cfg);
 
 TrackConfig right_cfg;
 
@@ -88,30 +83,28 @@ right_cfg.name = "right_track";
 right_cfg.pigpio_handle = pi_;
 
 right_cfg.slp_gpio =
-  std::stoi(info_.hardware_parameters.at("right_slp_gpio"));
+  std::stoi(info_.hardware_parameters.at("right.slp_gpio"));
 
 right_cfg.dir_gpio =
-  std::stoi(info_.hardware_parameters.at("right_dir_gpio"));
+  std::stoi(info_.hardware_parameters.at("right.dir_gpio"));
 
 right_cfg.pwm_gpio =
-  std::stoi(info_.hardware_parameters.at("right_pwm_gpio"));
+  std::stoi(info_.hardware_parameters.at("right.pwm_gpio"));
 
 right_cfg.rpm_motor =
-  std::stod(info_.hardware_parameters.at("rpm_motor"));
+  std::stod(info_.hardware_parameters.at("right.rpm_motor"));
 
 right_cfg.gear_ratio =
-  std::stod(info_.hardware_parameters.at("gear_ratio"));
+  std::stod(info_.hardware_parameters.at("right.gear_ratio"));
 
 right_cfg.max_accel =
-  std::stod(info_.hardware_parameters.at("max_accel"));
+  std::stod(info_.hardware_parameters.at("right.max_accel"));
 
 right_cfg.invert_direction =
-  info_.hardware_parameters.at("right_invert_direction") == "true";
+  info_.hardware_parameters.at("right.invert_direction") == "true";
 
-  right_track_ = std::make_unique<Track>(right_cfg);
+right_track_ = std::make_unique<Track>(right_cfg);
 
-
-  /* ---------- LOG ---------- */
 
   LOG_IMPORTANTE(logger,
     "LEFT TRACK | RPM: %.1f | MAX RAD/S: %.2f | MAX ACCEL: %.2f",
@@ -141,8 +134,6 @@ hardware_interface::CallbackReturn DiffDriveHW::on_activate(
 
   return hardware_interface::CallbackReturn::SUCCESS;
 }
-
-
 
 
 hardware_interface::CallbackReturn DiffDriveHW::on_deactivate(
@@ -204,23 +195,20 @@ hardware_interface::return_type DiffDriveHW::read(
 }
 
 
-
 hardware_interface::return_type DiffDriveHW::write(
   const rclcpp::Time &,
   const rclcpp::Duration & period)
 {
+  auto logger = rclcpp::get_logger("DiffDriveHW");
   double dt = period.seconds();
 
   left_track_->update(commands_[0], dt);
   right_track_->update(commands_[1], dt);
-
   return hardware_interface::return_type::OK;
 }
 
 
-} // namespace cloud_hardware
+} // namespace cloud_robot
 
+PLUGINLIB_EXPORT_CLASS(cloud_robot::DiffDriveHW, hardware_interface::SystemInterface)
 
-PLUGINLIB_EXPORT_CLASS(
-  cloud_robot::DiffDriveHW,
-  hardware_interface::SystemInterface)
